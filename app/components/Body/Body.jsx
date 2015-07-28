@@ -13,7 +13,19 @@ export default class Body extends React.Component {
   static propTypes = {
     //items: PropTypes.array.isRequired
   };
-
+  
+  //routes
+  /*
+   * /
+   * /admin
+   * /admin/posts
+   * /admin/videos
+   * /admin/preview
+   * /posts/:postId
+   * /videos
+   * /videos/:date
+   *
+   * */
   render() {
     return (
       <div className={styles.body}>
