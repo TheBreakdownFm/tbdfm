@@ -17,21 +17,6 @@ export default class App extends React.Component {
     };
   }
 
-  logIn(e){
-var Parse = require('parse').Parse;
-Parse.initialize("lQwARpSuxxOjSj7eqRFvTO4AnzR7AeWN58SDEnfc", "y4Ds9YFPso1QIoc0w6QaH4pxGDx7fsQWXXvnWdHu");
-    e.preventDefault();
-    Parse.User.logIn(this.state.username, this.state.password, {
-      success: function(user) {
-        actions.logInResult({user: user});
-      },
-      error: function(user, error) {
-        actions.logInResult({user: user, error: error});
-      }
-    });
-  }
-
-
   componentDidMount() {
   }
 
@@ -42,12 +27,8 @@ Parse.initialize("lQwARpSuxxOjSj7eqRFvTO4AnzR7AeWN58SDEnfc", "y4Ds9YFPso1QIoc0w6
       );
     } else {
       return (
-          <form>
-          <input type="text" valueLink={this.linkState('username')}placeholder="Username" />
-          <input type="text" valueLink={this.linkState('password')} placeholder="Password" />
-          <button onClick={this.logIn.bind(this)} >Get in</button>
-          </form>
-        )
+          <a href="/signin">Sign In</a>
+          )
     }
   }
 
@@ -65,5 +46,4 @@ Parse.initialize("lQwARpSuxxOjSj7eqRFvTO4AnzR7AeWN58SDEnfc", "y4Ds9YFPso1QIoc0w6
   }
 
 }
-ReactMixin(App.prototype, React.addons.LinkedStateMixin);
 
