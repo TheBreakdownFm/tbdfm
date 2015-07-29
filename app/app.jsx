@@ -4,7 +4,7 @@ import 'babel-core/polyfill';
 import 'normalize.css/normalize.css';
 import './scss/app.scss';
 
-import React from 'react';
+import React from 'react/addons';
 import App from './components/App/App';
 
 React.render(
