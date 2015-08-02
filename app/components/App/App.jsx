@@ -4,7 +4,7 @@ import React from 'react/addons';
 //import actions from '../../actions/AppActions';
 import Footer from '../Footer/Footer';
 //import userapi from '../../util/UserApi';
-import { RouteHandler } from 'react-router';
+import { RouteHandler, Link } from 'react-router';
 import appstore from '../../stores/AppStore';
 
 class App extends React.Component {
@@ -25,7 +25,7 @@ class App extends React.Component {
   render() {
     return (
       <div className={styles.app}>
-              <h1> TBD.FM </h1>
+        <h1><Link to="home">TBD.fm</Link></h1>
               <RouteHandler key={this.context.router.getCurrentPath()} />
               <Footer />
       </div>
@@ -36,6 +36,8 @@ class App extends React.Component {
 App.contextTypes = {
   router: React.PropTypes.func.isRequired
 };
+
+
 
 export default App;
 

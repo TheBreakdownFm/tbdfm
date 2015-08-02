@@ -1,6 +1,7 @@
 import React from 'react';
 import postStore from '../../stores/PostStore';
 import PostList from '../PostList/PostList';
+
 var Parse = require('parse').Parse;
 
 class HomePage extends React.Component {
@@ -13,14 +14,13 @@ class HomePage extends React.Component {
   }
 
   loadPosts() {
-    
+
   }
-  
+
 
   render() {
     return (
       <div className={'page__home'}>
-        <h1>Home</h1>
         <PostList />
       </div>
     );
