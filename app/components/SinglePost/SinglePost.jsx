@@ -37,6 +37,8 @@ class SinglePost extends React.Component {
         </div>
     )
   }
+
+
 }
 
 SinglePost.contextTypes = {
