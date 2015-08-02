@@ -11,6 +11,9 @@ class PostStore {
   onGetPosts(offset){
     postApi.getPosts(offset);
   }
+  onGetAllPosts(){
+    postApi.getAllPosts();
+  }
 
   onGetPostsResult(result){
     if(result){this.posts = result};

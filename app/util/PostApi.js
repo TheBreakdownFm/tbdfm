@@ -20,6 +20,23 @@ let PostApi = {
       });
     }
   },
+
+  getAllPosts(offset){
+    if(offset){
+
+    } else {
+      var Post = Parse.Object.extend("Post");
+      var query = new Parse.Query(Post);
+      query.find({
+        success: function(results) {
+          actions.getPostsResult(results);
+        },
+        error: function(error) {
+          actions.getPostsResult(false);
+        }
+      });
+    }
+  },
   getSinglePost(id){
     var Post = Parse.Object.extend("Post");
     var query = new Parse.Query(Post);

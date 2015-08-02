@@ -5,6 +5,8 @@ import React from 'react/addons';
 import Footer from '../Footer/Footer';
 //import userapi from '../../util/UserApi';
 import { RouteHandler, Link } from 'react-router';
+var Parse = require('parse').Parse;
+
 import appstore from '../../stores/AppStore';
 
 class App extends React.Component {
@@ -16,6 +18,18 @@ class App extends React.Component {
     };
   }
 
+  sesh() {
+    if(Parse.User.current()){
+      return(
+        <Link to='/login'> Log Out </Link>
+      );
+    } else {
+      return (
+        <Link to='/login'> Log In </Link>
+      );
+    }
+  }
+
   componentDidMount() {
   }
 
@@ -25,7 +39,8 @@ class App extends React.Component {
   render() {
     return (
       <div className={styles.app}>
-        <h1><Link to="home">TBD.fm</Link></h1>
+        <h1><Link to="home">TBD.fm</Link></h1><h4>{this.sesh()}</h4>
+
               <RouteHandler key={this.context.router.getCurrentPath()} />
               <Footer />
       </div>

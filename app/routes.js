@@ -1,9 +1,7 @@
 import React from 'react'
 
-import {
-        Route,
-        DefaultRoute
-} from 'react-router';
+
+import {Route, DefaultRoute} from 'react-router';
 
 import App from './components/App/App';
 import LoginSignup from './components/LoginSignup/LoginSignup';

@@ -46,7 +46,7 @@ class NewPost  extends React.Component {
         <form>
           <input type="text" valueLink={this.linkState('title')} placeholder="Title" />
           <input type="text" valueLink={this.linkState('author')}placeholder="Author" />
-          <input type="textarea" valueLink={this.linkState('body')}placeholder="Body" />
+          <textarea  valueLink={this.linkState('body')}placeholder="Body" />
           <button onClick={this.createPost.bind(this)} >Create</button>
           <p> Create will only create, you can publish from the preview/edit screen. check your work :)</p>
         </form>

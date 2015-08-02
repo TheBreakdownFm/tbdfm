@@ -6,16 +6,17 @@ class appActions {
         'appStart',
         //posts
         'getPosts',
+        'getAllPosts',
         'getPostsResult',
         'getSinglePost',
         'getSinglePostResult',
-        
+
         //postAdmin
         'savePost',
         'savePostResult',
         'updatePost',
         'updatePostResult',
-        
+
         //video pages
         'getVideosForDate',
         'videoForDateResult',

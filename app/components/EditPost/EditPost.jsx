@@ -83,7 +83,7 @@ class EditPost  extends React.Component {
     <form>
       <input type="text" valueLink={this.linkState('title')} placeholder="Title" />
       <input type="text" valueLink={this.linkState('author')}placeholder="Author" />
-      <input type="textarea" valueLink={this.linkState('body')}placeholder="Body" />
+      <textarea valueLink={this.linkState('body')}placeholder="Body" />
       <button onClick={this.updatePost.bind(this)} >update</button>
     </form>
     )
