@@ -8,12 +8,15 @@ class PostStore {
     this.posts = [];
   }
 
-  onGetPosts(offset){
-    postApi.getPosts(offset);
+  onGetSinglePost(postid){
+    postApi.getSinglePost(postid);
   }
 
-  onGetPostsResult(result){
-    if(result){this.posts = result};
+  onGetSinglePostResult(result){
+    console.log(result);
+    let onepost = [];
+    onepost.push(result);
+    this.posts = onepost;
   }
 }
 

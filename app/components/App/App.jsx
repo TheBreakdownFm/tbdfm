@@ -1,35 +1,22 @@
 import styles from './_App.scss';
 import React from 'react/addons';
-import ReactMixin from 'react-mixin';
-import actions from '../../actions/AppActions';
-import Body from '../Body/Body';
+//import ReactMixin from 'react-mixin';
+//import actions from '../../actions/AppActions';
 import Footer from '../Footer/Footer';
-import userapi from '../../util/UserApi';
+//import userapi from '../../util/UserApi';
+import { RouteHandler } from 'react-router';
 import appstore from '../../stores/AppStore';
-export default class App extends React.Component {
+
+class App extends React.Component {
 
   constructor() {
     super();
     this.state = {
-      user: appstore.currentUser,
-      username: '',
-      password: ''
+      user: appstore.currentUser
     };
   }
 
   componentDidMount() {
-  }
-
-  signInOrUserName() {
-    if(this.state.user ){
-      return (
-        <h2> hello {this.state.user} </h2>
-      );
-    } else {
-      return (
-          <a href="/signin">Sign In</a>
-          )
-    }
   }
 
   componentWillUnmount() {
@@ -38,12 +25,17 @@ export default class App extends React.Component {
   render() {
     return (
       <div className={styles.app}>
-      {this.signInOrUserName()}
-        <Body />
-        <Footer />
+              <h1> TBD.FM </h1>
+              <RouteHandler key={this.context.router.getCurrentPath()} />
+              <Footer />
       </div>
     );
   }
-
 }
+
+App.contextTypes = {
+  router: React.PropTypes.func.isRequired
+};
+
+export default App;
 

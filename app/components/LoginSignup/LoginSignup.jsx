@@ -1,9 +1,10 @@
-import styles from './_App.scss';
+//import styles from './_App.scss';
 import React from 'react/addons';
 import ReactMixin from 'react-mixin';
 import actions from '../../actions/AppActions';
 import userapi from '../../util/UserApi';
 import appstore from '../../stores/AppStore';
+var Parse = require('parse').Parse;
 
 export default class LoginSignup  extends React.Component {
 
@@ -16,9 +17,18 @@ export default class LoginSignup  extends React.Component {
     };
   }
 
+  alreadyIn(){
+     if (Parse.User.current() != null){
+      return true;
+    }
+  } 
+  
+  logOut(){
+    Parse.User.logOut();  
+  }
+
+
   logIn(e){
-    var Parse = require('parse').Parse;
-    Parse.initialize("lQwARpSuxxOjSj7eqRFvTO4AnzR7AeWN58SDEnfc", "y4Ds9YFPso1QIoc0w6QaH4pxGDx7fsQWXXvnWdHu");
     e.preventDefault();
     Parse.User.logIn(this.state.username, this.state.password, {
       success: function(user) {
@@ -33,21 +43,24 @@ export default class LoginSignup  extends React.Component {
   signUp(e){
     //do sign up bullshit
   }
+render() {
 
-  inOrUp(){
-    /*
-     if (Parse.CurrentUser == null){
-    */
-  }
-
-  render() {
-      return (
+if(this.alreadyIn()){
+return (
+<div>
+      {Parse.User.current().username}
+      <button onClick={this.logOut}> Log Out </button>
+      </div>
+)
+} else {
+    return (
           <form>
-          <input type="text" valueLink={this.linkState('username')}placeholder="Username" />
           <input type="text" valueLink={this.linkState('password')} placeholder="Password" />
+          <input type="text" valueLink={this.linkState('username')}placeholder="Username" />
           <button onClick={this.logIn.bind(this)} >Get in</button>
           </form>
-        )
+);
+}
   }
-} 
-ReactMixin(App.prototype, React.addons.LinkedStateMixin);
+}
+ReactMixin(LoginSignup.prototype, React.addons.LinkedStateMixin);

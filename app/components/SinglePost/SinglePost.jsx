@@ -1,22 +1,22 @@
 import React from 'react';
 import actions from '../../actions/AppActions';
-import postStore from '../../stores/PostStore';
+import { RouteHandler } from 'react-router';
+import singlePostStore from '../../stores/SinglePostStore';
 import connectToStores from 'alt/utils/connectToStores';
 import Post from '../Post/Post'
 var Parse = require('parse').Parse;
 
-class PostList extends React.Component {
-  constructor(){
-    super();
-    actions.getPosts();
+class SinglePost extends React.Component {
+  constructor(props, context){
+    super(props);
+    actions.getSinglePost(context.router.getCurrentParams().postid);
   }
-
   static getStores() {
-    return [postStore];
+    return [singlePostStore];
   }
 
   static getPropsFromStores() {
-    return postStore.getState();
+    return singlePostStore.getState();
   }
 
   renderPosts() {
@@ -24,7 +24,6 @@ class PostList extends React.Component {
       return (
         <div>
           <Post post={postie}/>
-          <hr />
         </div>
       )
     })
@@ -33,12 +32,15 @@ class PostList extends React.Component {
 
   render() {
     return (
-        <div>
-          {this.renderPosts()}
+      <div>
+      {this.renderPosts()}
         </div>
-      )
+    )
   }
-
 }
 
-export default connectToStores(PostList);
+SinglePost.contextTypes = {
+  router: React.PropTypes.func.isRequired
+};
+
+export default connectToStores(SinglePost);

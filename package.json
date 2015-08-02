@@ -31,7 +31,8 @@
     "normalize.css": "^3.0.3",
     "parse": "^1.5.0",
     "react": "^0.13.3",
-    "react-mixin": "^1.7.0"
+    "react-mixin": "^1.7.0",
+    "react-router": "^0.13.3"
   },
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",

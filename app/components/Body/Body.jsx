@@ -13,7 +13,6 @@ export default class Body extends React.Component {
   static propTypes = {
     //items: PropTypes.array.isRequired
   };
-  
   //routes
   /*
    * /
