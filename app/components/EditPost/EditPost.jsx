@@ -65,13 +65,10 @@ class EditPost  extends React.Component {
     });
   }
 
-  //  updatePreview(e) {
-  //  e.preventDefault();
-  //  actions.getSinglePostResult(this.state);
-  //}
-
   renderPosts() {
-    let posts = this.props.posts.map((postie)=> {
+    let arrp = [];
+    arrp.push({attributes: this.state, id: this.context.router.getCurrentParams().postid});
+    let posts = arrp.map((postie)=> {
       return (
         <div>
           <Post post={postie}/>
@@ -87,7 +84,6 @@ class EditPost  extends React.Component {
       <input type="text" valueLink={this.linkState('title')} placeholder="Title" />
       <input type="text" valueLink={this.linkState('author')}placeholder="Author" />
       <input type="textarea" valueLink={this.linkState('body')}placeholder="Body" />
-      <button onClick={this.updatePreview.bind(this)}> PREVIEW </button>
       <button onClick={this.updatePost.bind(this)} >update</button>
     </form>
     )
