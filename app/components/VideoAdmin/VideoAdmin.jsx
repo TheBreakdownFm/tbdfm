@@ -1,30 +1,30 @@
 import React from 'react';
 import actions from '../../actions/AppActions';
-import postStore from '../../stores/PostStore';
+import videoBlastStore from '../../stores/VideoBlastStore';
 import connectToStores from 'alt/utils/connectToStores';
 import { Link } from 'react-router';
 var Parse = require('parse').Parse;
 
-class BlogAdmin extends React.Component {
+class VideoAdmin extends React.Component {
   constructor(){
     super();
-    actions.getAllPosts();
+    actions.getAllVideoBlasts();
   }
 
   static getStores() {
-    return [postStore];
+    return [videoBlastStore];
   }
 
   static getPropsFromStores() {
-    return postStore.getState();
+    return videoBlastStore.getState();
   }
 
   renderPosts() {
-    let posts = this.props.posts.map((postie)=> {
+    let posts = this.props.videoBlasts.map((postie)=> {
       return (
         <ul>
           <li>
-            <Link to='editpost' params={{postid: postie.id}}>{postie.attributes.title} - {postie.attributes.published}</Link>
+            <Link to='editvideoblast' params={{blastid: postie.id}}>{postie.createdAt} - {postie.attributes.published}</Link>
           </li>
         </ul>
       )
@@ -35,7 +35,9 @@ class BlogAdmin extends React.Component {
   render() {
     return (
       <div>
-        <div><Link to='newpost'>New Post</Link></div>
+        <div>
+          <Link to="newvideoblast">New Video Blast</Link>
+        </div>
         {this.renderPosts()}
       </div>
     )
@@ -43,4 +45,4 @@ class BlogAdmin extends React.Component {
 
 }
 
-export default connectToStores(BlogAdmin);
+export default connectToStores(VideoAdmin);

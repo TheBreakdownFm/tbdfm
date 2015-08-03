@@ -60,8 +60,9 @@ class LoginSignup extends React.Component {
     } else {
           return (
                 <form>
-                <input type="text" valueLink={this.linkState('password')} placeholder="Password" />
-                <input type="text" valueLink={this.linkState('username')}placeholder="Username" />
+                  <input type="text" valueLink={this.linkState('username')}placeholder="Username" />
+
+                  <input type="password" valueLink={this.linkState('password')} placeholder="Password" />
                 <button onClick={this.logIn.bind(this)} >Get in</button>
                 </form>
       );

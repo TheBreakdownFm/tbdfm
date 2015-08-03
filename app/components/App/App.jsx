@@ -1,4 +1,3 @@
-import styles from './_App.scss';
 import React from 'react/addons';
 //import ReactMixin from 'react-mixin';
 //import actions from '../../actions/AppActions';
@@ -38,11 +37,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className={styles.app}>
-        <h1><Link to="home">TBD.fm</Link></h1><h4>{this.sesh()}</h4>
-
+      <div className={'app'}>
+        <h1><Link to='home'>TBD.fm</Link></h1>
+        <h4>{this.sesh()}</h4>
               <RouteHandler key={this.context.router.getCurrentPath()} />
-              <Footer />
+              <Footer/>
       </div>
     );
   }

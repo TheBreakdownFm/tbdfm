@@ -23,7 +23,8 @@ class PostList extends React.Component {
     let posts = this.props.posts.map((postie)=> {
       return (
         <div>
-          <Post post={postie}/>
+
+          <Post post={postie} key={postie.id}/>
           <hr />
         </div>
       )
@@ -34,6 +35,7 @@ class PostList extends React.Component {
   render() {
     return (
         <div>
+          <h3>Posts</h3>
           {this.renderPosts()}
         </div>
       )

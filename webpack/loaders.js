@@ -21,25 +21,12 @@ var htmlLoader = [
 ].join('!');
 var jsonLoader = ['json-loader'];
 
-var sassParams = [
-  'outputStyle=expanded',
-  'includePaths[]=' + path.resolve(__dirname, '../app/scss'),
-  'includePaths[]=' + path.resolve(__dirname, '../node_modules')
-];
-
 if (DEBUG || TEST) {
   jsxLoader = [];
   if (!TEST) {
     jsxLoader.push('react-hot');
   }
   jsxLoader.push('babel-loader?optional[]=runtime&stage=0&plugins=rewire');
-  sassParams.push('sourceMap', 'sourceMapContents=true');
-  sassLoader = [
-    'style-loader',
-    'css-loader?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:5]',
-    'postcss-loader',
-    'sass-loader?' + sassParams.join('&')
-  ].join('!');
   cssLoader = [
     'style-loader',
     'css-loader?sourceMap&modules&localIdentName=[name]__[local]___[hash:base64:5]',
@@ -47,11 +34,6 @@ if (DEBUG || TEST) {
   ].join('!');
 } else {
   jsxLoader = ['babel-loader?optional[]=runtime&stage=0&plugins=rewire'];
-  sassLoader = ExtractTextPlugin.extract('style-loader', [
-    'css-loader?modules&localIdentName=[hash:base64:5]',
-    'postcss-loader',
-    'sass-loader?' + sassParams.join('&')
-  ].join('!'));
   cssLoader = ExtractTextPlugin.extract('style-loader', [
     'css-loader?modules&localIdentName=[hash:base64:5]',
     'postcss-loader'
@@ -80,10 +62,6 @@ var loaders = [
   {
     test: /\.html$/,
     loader: htmlLoader
-  },
-  {
-    test: /\.scss$/,
-    loader: sassLoader
   }
 ];
 

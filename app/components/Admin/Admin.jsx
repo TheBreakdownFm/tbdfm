@@ -51,7 +51,6 @@ class Admin extends React.Component {
     if (this.state.admin) {
       return (
         <div className={'adminhome'}>
-          <Link to="blogadmin" >Blog Admin</Link>
           <RouteHandler key={this.context.router.getCurrentPath()} />
         </div>
       );
@@ -63,7 +62,8 @@ class Admin extends React.Component {
     return (
       <div>
         <h1><Link to="admin">Admin</Link></h1>
-
+        <Link to='blogadmin' >Blog Admin</Link>
+        <Link to='videoadmin' > Video Admin</Link>
         {this.rednderBasedOnPermission()}
       </div>
     );

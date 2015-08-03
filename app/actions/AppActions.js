@@ -18,6 +18,10 @@ class appActions {
         'updatePostResult',
 
         //video pages
+        'getSingleVideoBlast',
+        'getSingleVideoBlastResult',
+        'getAllVideoBlasts',
+        'getAllVideoBlastsResult',
         'getVideosForDate',
         'videoForDateResult',
 

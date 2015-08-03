@@ -2,7 +2,7 @@ import alt from '../alt';
 import actions from '../actions/AppActions';
 import postApi from '../util/PostApi';
 
-class PostStore {
+class SinglePostStore {
   constructor() {
     this.bindActions(actions);
     this.posts = [];
@@ -20,4 +20,4 @@ class PostStore {
   }
 }
 
-export default alt.createStore(PostStore, 'PostStore');
+export default alt.createStore(SinglePostStore, 'SinglePostStore');

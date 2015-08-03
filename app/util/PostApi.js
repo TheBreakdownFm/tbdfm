@@ -10,6 +10,7 @@ let PostApi = {
       var Post = Parse.Object.extend("Post");
       var query = new Parse.Query(Post);
       query.limit(10);
+      query.equalTo('published', true);
       query.find({
         success: function(results) {
           actions.getPostsResult(results);
@@ -21,13 +22,12 @@ let PostApi = {
     }
   },
 
-  getAllPosts(offset){
-    if(offset){
-
-    } else {
+  getAllPosts(){
       var Post = Parse.Object.extend("Post");
       var query = new Parse.Query(Post);
-      query.find({
+    query.descending('ceatedAt');
+
+    query.find({
         success: function(results) {
           actions.getPostsResult(results);
         },
@@ -35,7 +35,7 @@ let PostApi = {
           actions.getPostsResult(false);
         }
       });
-    }
+
   },
   getSinglePost(id){
     var Post = Parse.Object.extend("Post");

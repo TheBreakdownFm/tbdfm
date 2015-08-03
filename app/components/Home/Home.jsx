@@ -1,6 +1,7 @@
 import React from 'react';
 import postStore from '../../stores/PostStore';
 import PostList from '../PostList/PostList';
+import VideoBlast from '../VideoBlast/VideoBlast';
 
 var Parse = require('parse').Parse;
 
@@ -21,6 +22,8 @@ class HomePage extends React.Component {
   render() {
     return (
       <div className={'page__home'}>
+        <VideoBlast />
+
         <PostList />
       </div>
     );

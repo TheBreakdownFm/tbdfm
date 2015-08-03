@@ -53,6 +53,7 @@ class EditPost  extends React.Component {
     newPost.set("title", this.state.title);
     newPost.set("author", this.state.author);
     newPost.set("body", this.state.body);
+    newPost.set('published', this.state.published);
     newPost.set("objectId", this.context.router.getCurrentParams().postid);
     newPost.save(null, {
       success: function (post) {
@@ -84,6 +85,7 @@ class EditPost  extends React.Component {
       <input type="text" valueLink={this.linkState('title')} placeholder="Title" />
       <input type="text" valueLink={this.linkState('author')}placeholder="Author" />
       <textarea valueLink={this.linkState('body')}placeholder="Body" />
+      <input type="checkbox" checkedLink={this.linkState('published')} />
       <button onClick={this.updatePost.bind(this)} >update</button>
     </form>
     )
