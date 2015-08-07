@@ -6,7 +6,7 @@ import userapi from '../../util/UserApi';
 import appstore from '../../stores/AppStore';
 import singlePostStore from '../../stores/SinglePostStore';
 
-import Post from '../Post/Post';
+import Post from '../Post';
 var Parse = require('parse').Parse;
 import connectToStores from 'alt/utils/connectToStores';
 
@@ -21,6 +21,10 @@ class EditPost  extends React.Component {
       title: '',
       author: '',
       body: '',
+      type: '',
+      imageUrl: '',
+      videoUrl: '',
+      podcastUrl: '',
       published: false
     }
     actions.getSinglePost(context.router.getCurrentParams().postid);
@@ -47,23 +51,10 @@ class EditPost  extends React.Component {
 
   updatePost(e) {
     e.preventDefault();
-    var Post = Parse.Object.extend("Post");
-    var newPost = new Post();
-
-    newPost.set("title", this.state.title);
-    newPost.set("author", this.state.author);
-    newPost.set("body", this.state.body);
-    newPost.set('published', this.state.published);
-    newPost.set("objectId", this.context.router.getCurrentParams().postid);
-    newPost.save(null, {
-      success: function (post) {
-        // Execute any logic that should take place after the object is saved.
-        alert('something ok maybe happen');
-      },
-      error: function (post, error) {
-        alert('Well, shit. I Failed to create the new Post, the error was: ' + error.message);
-      }
-    });
+    let newPostVals = this.state;
+    newPostVals.type = 'blag';
+    newPostVals.objectId = this.context.router.getCurrentParams().postId;
+    actions.updatePost(newPostVals);
   }
 
   renderPosts() {
@@ -82,10 +73,22 @@ class EditPost  extends React.Component {
   renderForm() {
     return(
     <form>
+      <select valueLink={this.linkState('type')}>
+        <option value='blag'> Blag </option>
+        <option value='podcast'> Podcast </option>
+        <option value='video'> Podcast </option>
+      </select>
+      <br/>
       <input type="text" valueLink={this.linkState('title')} placeholder="Title" />
+      <br/>
       <input type="text" valueLink={this.linkState('author')}placeholder="Author" />
-      <textarea valueLink={this.linkState('body')}placeholder="Body" />
-      <input type="checkbox" checkedLink={this.linkState('published')} />
+      <br/>
+      <input type='text' valueLink={this.linkState('videoUrl')} placeholder='Video Url'/>
+      <br/>
+      <input type='text' valueLink={this.linkState('imageUrl')} placeholder='Image Url' />
+      <br/>
+      <input type='text' valueLink={this.linkState('podcastUrl')} placeholder='Podcast Url' />
+      <br/>
       <button onClick={this.updatePost.bind(this)} >update</button>
     </form>
     )
@@ -95,6 +98,7 @@ class EditPost  extends React.Component {
   render() {
     return (
       <div>
+
         {this.renderForm()}
       <h3> Preview </h3>
         {this.renderPosts()}

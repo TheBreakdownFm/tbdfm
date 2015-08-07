@@ -1,9 +1,9 @@
 import React from 'react';
-import actions from '../../actions/AppActions';
+import actions from '../actions/AppActions';
 import { RouteHandler } from 'react-router';
-import singlePostStore from '../../stores/SinglePostStore';
-import connectToStores from 'alt/utils/connectToStores';
-import Post from '../Post/Post'
+import singlePostStore from '../stores/SinglePostStore';
+import connectToStores from '../../node_modules/alt/utils/connectToStores';
+import Post from './Post'
 var Parse = require('parse').Parse;
 
 class SinglePost extends React.Component {

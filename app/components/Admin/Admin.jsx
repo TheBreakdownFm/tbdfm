@@ -1,8 +1,8 @@
 import React from 'react';
 import postStore from '../../stores/PostStore';
-import PostList from '../PostList/PostList';
+import PostList from '../PostList';
 import { RouteHandler, Link } from 'react-router'
-import LoginSignup from '../LoginSignup/LoginSignup'
+import LoginSignup from '../LoginSignup'
 var Parse = require('parse').Parse;
 
 class Admin extends React.Component {

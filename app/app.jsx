@@ -3,7 +3,7 @@ import './index.html';
 import 'babel-core/polyfill';
 import 'normalize.css/normalize.css';
 import React from 'react/addons';
-import App from './components/App/App';
+import App from './components/App';
 import Router from 'react-router';
 import routes from './routes';
 require("./skeleton.css");

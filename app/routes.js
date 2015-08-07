@@ -3,10 +3,10 @@ import React from 'react'
 
 import {Route, DefaultRoute} from 'react-router';
 
-import App from './components/App/App';
-import LoginSignup from './components/LoginSignup/LoginSignup';
-import Home from './components/Home/Home';
-import SinglePost from './components/SinglePost/SinglePost';
+import App from './components/App';
+import LoginSignup from './components/LoginSignup';
+import Home from './components/Home';
+import SinglePost from './components/SinglePost';
 import Admin from './components/Admin/Admin';
 import EditPost from './components/EditPost/EditPost';
 import BlogAdmin from './components/BlogAdmin/BlogAdmin';
@@ -22,14 +22,8 @@ export default (
                   <Route handler={SinglePost} name='post' path='/posts/:postid?' />
                   <Route handler={VideoBlast} name='videoblast' path='/videoblasts/:blastid?'/>
                   <Route handler={Admin} name='admin' path='/admin'>
-
                     <Route handler={NewPost} name='newpost' path='newpost'/>
                     <Route handler={EditPost} name='editpost' path='editpost/:postid' />
-                    <Route handler={BlogAdmin} name='blogadmin' path='blogadmin' />
-
-                    <Route handler={NewVideoBlast} name='newvideoblast' path='newvideoblast'/>
-                    <Route handler={EditVideoBlast} name='editvideoblast' path='editvideoblast/:blastid' />
-                    <Route handler={VideoAdmin} name='videoadmin' path='videoadmin' />
 
                   </Route>
 

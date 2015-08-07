@@ -1,8 +1,8 @@
 import React from 'react';
-import actions from '../../actions/AppActions';
-import postStore from '../../stores/PostStore';
-import connectToStores from 'alt/utils/connectToStores';
-import Post from '../Post/Post'
+import actions from '../actions/AppActions';
+import postStore from '../stores/PostStore';
+import connectToStores from '../../node_modules/alt/utils/connectToStores';
+import Post from './Post'
 var Parse = require('parse').Parse;
 
 class PostList extends React.Component {

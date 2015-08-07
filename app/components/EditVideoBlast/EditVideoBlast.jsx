@@ -7,7 +7,7 @@ import appstore from '../../stores/AppStore';
 import SingleVideoBlast from '../SingleVideoBlast/SingleVideoBlast'
 import videoBlastStore from '../../stores/VideoBlastStore';
 
-import Post from '../Post/Post';
+import Post from '../Post';
 var Parse = require('parse').Parse;
 import connectToStores from 'alt/utils/connectToStores';
 

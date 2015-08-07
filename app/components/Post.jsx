@@ -1,7 +1,7 @@
 import {Link} from 'react-router';
-import actions from '../../actions/AppActions';
+import actions from '../actions/AppActions';
 import React from 'react';
-import postStore from '../../stores/PostStore';
+import postStore from '../stores/PostStore';
 var Parse = require('parse').Parse;
 var Markdown = require('react-remarkable');
 

@@ -1,12 +1,11 @@
-import React from 'react/addons';
+import React from '../../node_modules/react/addons';
 //import ReactMixin from 'react-mixin';
 //import actions from '../../actions/AppActions';
-import Footer from '../Footer/Footer';
 //import userapi from '../../util/UserApi';
 import { RouteHandler, Link } from 'react-router';
 var Parse = require('parse').Parse;
 
-import appstore from '../../stores/AppStore';
+import appstore from '../stores/AppStore';
 
 class App extends React.Component {
 
@@ -41,7 +40,6 @@ class App extends React.Component {
         <h1><Link to='home'>TBD.fm</Link></h1>
         <h4>{this.sesh()}</h4>
               <RouteHandler key={this.context.router.getCurrentPath()} />
-              <Footer/>
       </div>
     );
   }

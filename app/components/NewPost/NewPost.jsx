@@ -43,13 +43,27 @@ class NewPost  extends React.Component {
 
   render() {
       return (
-        <form>
-          <input type="text" valueLink={this.linkState('title')} placeholder="Title" />
-          <input type="text" valueLink={this.linkState('author')}placeholder="Author" />
-          <textarea  valueLink={this.linkState('body')}placeholder="Body" />
-          <button onClick={this.createPost.bind(this)} >Create</button>
-          <p> Create will only create, you can publish from the preview/edit screen. check your work :)</p>
-        </form>
+
+      <form>
+        <select valueLink={this.linkState('type')}>
+          <option value='blag'> Blag </option>
+          <option value='podcast'> Podcast </option>
+          <option value='video'> Podcast </option>
+        </select>
+        <br/>
+        <input type="text" valueLink={this.linkState('title')} placeholder="Title" />
+        <br/>
+        <input type="text" valueLink={this.linkState('author')}placeholder="Author" />
+        <br/>
+        <input type='text' valueLink={this.linkState('videoUrl')} placeholder='Video Url'/>
+        <br/>
+        <input type='text' valueLink={this.linkState('imageUrl')} placeholder='Image Url' />
+        <br/>
+        <input type='text' valueLink={this.linkState('podcastUrl')} placeholder='Podcast Url' />
+        <br/>
+        <button onClick={this.createPost.bind(this)} >Create</button>
+        <p> Create will only create, you can publish from the preview/edit screen. check your work :)</p>
+      </form>
 
       );
   }
